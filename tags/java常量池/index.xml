@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java常量池 on Dai</title>
+    <link>https://vigorous-wozniak-4b6bd2.netlify.app/tags/java%E5%B8%B8%E9%87%8F%E6%B1%A0/</link>
+    <description>Recent content in Java常量池 on Dai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 15 Jul 2020 15:10:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/java%E5%B8%B8%E9%87%8F%E6%B1%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java常量池总结</title>
+      <link>https://vigorous-wozniak-4b6bd2.netlify.app/java%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Wed, 15 Jul 2020 15:10:12 +0800</pubDate>
+      
+      <guid>https://vigorous-wozniak-4b6bd2.netlify.app/java%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%80%BB%E7%BB%93/</guid>
+      <description>在Java体系中，一共有三种常量池，分别是Class常量池、字符串常量池和运行时常量池。
+Class常量池 什么是Class常量池？可以理解成Class文件的资源仓库，用于存放编译器生成的各种字面量（Literal）和符号引用（Symbolic References）。
+ 字面量：在计算机科学中，字面量用于表示源代码中一个固定值的表示法，如整数，浮点数，字符串等。
+符号引用：属于编译原理中的概念，相对于直接引用而言。主要包括三种常量：类和接口的全限定名、字段的名称和描述符、方法的名称和描述符。
+ 用一个例子来说明一下，对于以下Java代码：
+public class HelloWorld { private static String name = &amp;quot;test&amp;quot;; public static void main(String[] args) { String msg = &amp;quot;World&amp;quot;; System.out.println(&amp;quot;Hello,&amp;quot; + name + &amp;quot;,&amp;quot; + msg); } }  执行javac HelloWorld.java对其进行编译，得到HelloWorld.class文件，我们来查看一下这个字节码文件的内容，执行以下命令：
+javap -v HelloWorld.class  得到如下内容：
+Last modified 2020-7-15; size 774 bytes MD5 checksum bd438b8d35e4266f3713e53bf1037f8c Compiled from &amp;quot;HelloWorld.java&amp;quot; public class com.demo.test.HelloWorld minor version: 0 major version: 52 flags: ACC_PUBLIC, ACC_SUPER Constant pool: #1 = Methodref #14.</description>
+    </item>
+    
+  </channel>
+</rss>

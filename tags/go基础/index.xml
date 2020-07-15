@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go基础 on Dai</title>
+    <link>https://vigorous-wozniak-4b6bd2.netlify.app/tags/go%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in Go基础 on Dai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Wed, 08 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/go%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>《Go语言编程》习题参考答案整理（持续更新）</title>
+      <link>https://vigorous-wozniak-4b6bd2.netlify.app/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8Bthe-go-programming-language%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/</link>
+      <pubDate>Wed, 08 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://vigorous-wozniak-4b6bd2.netlify.app/go%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8Bthe-go-programming-language%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98%E5%8F%82%E8%80%83%E7%AD%94%E6%A1%88/</guid>
+      <description>第8章 goroutine和通道 练习 8.1 原题目：
+修改clock2来接收一个端口号，写一个程序clockwall，作为多个时钟服务器的客户端，读取每一个服务器的时间，类似于不同地区办公室的时钟，然后显示在一个表中。如果可以访问不同地域的计算机，可以远程运行示例程序；否则可以伪装不同的时区，在不同的端口上本地运行：
+$ TZ=US/Eastern ./clock -port 8010 &amp;amp; $ TZ=Asia/Tokyo ./clock -port 8030 &amp;amp; $ TZ=Europe/London ./clock -port 8030 &amp;amp;$ clockwall NewYork=localhost:8010 Tokyo=localhost:8030 London=localhost:8020 参考答案:
+服务端代码clock.go:
+package mainimport (&amp;quot;flag&amp;quot;&amp;quot;fmt&amp;quot;&amp;quot;io&amp;quot;&amp;quot;log&amp;quot;&amp;quot;net&amp;quot;&amp;quot;time&amp;quot;)var port = flag.Int(&amp;quot;port&amp;quot;, 8000, &amp;quot;listen port&amp;quot;)func main() {// 解析命令flag.Parse()address := fmt.Sprintf(&amp;quot;localhost:%d&amp;quot;, *port)fmt.Printf(&amp;quot;address:%s\n&amp;quot;, address)listener, err := net.Listen(&amp;quot;tcp&amp;quot;, address)if err != nil {log.</description>
+    </item>
+    
+  </channel>
+</rss>

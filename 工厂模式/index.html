@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="generator" content="Hugo 0.73.0-DEV" />
+  <link rel="canonical" href="https://vigorous-wozniak-4b6bd2.netlify.app/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+
+  
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="https://vigorous-wozniak-4b6bd2.netlify.app/css/prism.css" media="none" onload="this.media='all';">
+
+  
+  
+  <link rel="stylesheet" type="text/css" href="https://vigorous-wozniak-4b6bd2.netlify.app/css/styles.css">
+
+  
+
+  <style id="inverter" media="none">
+    .intro-and-nav, .main-and-footer { filter: invert(100%) }
+    * { background-color: inherit }
+    img:not([src*=".svg"]), .colors, iframe, .demo-container { filter: invert(100%) }
+  </style>
+
+  
+  
+  <title>设计模式学习之工厂模式 | Dai</title>
+</head>
+
+  <body>
+    <a href="#main">skip to content</a>
+    <svg style="display: none">
+  <symbol id="bookmark" viewBox="0 0 40 50">
+   <g transform="translate(2266 3206.2)">
+    <path style="stroke:currentColor;stroke-width:3.2637;fill:none" d="m-2262.2-3203.4-.2331 42.195 16.319-16.318 16.318 16.318.2331-42.428z"/>
+   </g>
+  </symbol>
+
+  <symbol id="w3c" viewBox="0 0 127.09899 67.763">
+   <text font-size="83" style="font-size:83px;font-family:Trebuchet;letter-spacing:-12;fill-opacity:0" letter-spacing="-12" y="67.609352" x="-26.782778">W3C</text>
+   <text font-size="83" style="font-size:83px;font-weight:bold;font-family:Trebuchet;fill-opacity:0" y="67.609352" x="153.21722" font-weight="bold">SVG</text>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m33.695.377 12.062 41.016 12.067-41.016h8.731l-19.968 67.386h-.831l-12.48-41.759-12.479 41.759h-.832l-19.965-67.386h8.736l12.061 41.016 8.154-27.618-3.993-13.397h8.737z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m91.355 46.132c0 6.104-1.624 11.234-4.862 15.394-3.248 4.158-7.45 6.237-12.607 6.237-3.882 0-7.263-1.238-10.148-3.702-2.885-2.47-5.02-5.812-6.406-10.022l6.82-2.829c1.001 2.552 2.317 4.562 3.953 6.028 1.636 1.469 3.56 2.207 5.781 2.207 2.329 0 4.3-1.306 5.909-3.911 1.609-2.606 2.411-5.738 2.411-9.401 0-4.049-.861-7.179-2.582-9.399-1.995-2.604-5.129-3.912-9.397-3.912h-3.327v-3.991l11.646-20.133h-14.062l-3.911 6.655h-2.493v-14.976h32.441v4.075l-12.31 21.217c4.324 1.385 7.596 3.911 9.815 7.571 2.22 3.659 3.329 7.953 3.329 12.892z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m125.21 0 1.414 8.6-5.008 9.583s-1.924-4.064-5.117-6.314c-2.693-1.899-4.447-2.309-7.186-1.746-3.527.73-7.516 4.938-9.258 10.13-2.084 6.21-2.104 9.218-2.178 11.978-.115 4.428.58 7.043.58 7.043s-3.04-5.626-3.011-13.866c.018-5.882.947-11.218 3.666-16.479 2.404-4.627 5.954-7.404 9.114-7.728 3.264-.343 5.848 1.229 7.841 2.938 2.089 1.788 4.213 5.698 4.213 5.698l4.94-9.837z"/>
+   <path style="fill:currentColor;image-rendering:optimizeQuality;shape-rendering:geometricPrecision" d="m125.82 48.674s-2.208 3.957-3.589 5.48c-1.379 1.524-3.849 4.209-6.896 5.555-3.049 1.343-4.646 1.598-7.661 1.306-3.01-.29-5.807-2.032-6.786-2.764-.979-.722-3.486-2.864-4.897-4.854-1.42-2-3.634-5.995-3.634-5.995s1.233 4.001 2.007 5.699c.442.977 1.81 3.965 3.749 6.572 1.805 2.425 5.315 6.604 10.652 7.545 5.336.945 9.002-1.449 9.907-2.031.907-.578 2.819-2.178 4.032-3.475 1.264-1.351 2.459-3.079 3.116-4.108.487-.758 1.276-2.286 1.276-2.286l-1.276-6.644z"/>
+  </symbol>
+
+  <symbol id="tag" viewBox="0 0 177.16535 177.16535">
+    <g transform="translate(0 -875.2)">
+     <path style="fill-rule:evenodd;stroke-width:0;fill:currentColor" d="m159.9 894.3-68.79 8.5872-75.42 77.336 61.931 60.397 75.429-76.565 6.8495-69.755zm-31.412 31.835a10.813 10.813 0 0 1 1.8443 2.247 10.813 10.813 0 0 1 -3.5174 14.872l-.0445.0275a10.813 10.813 0 0 1 -14.86 -3.5714 10.813 10.813 0 0 1 3.5563 -14.863 10.813 10.813 0 0 1 13.022 1.2884z"/>
+    </g>
+  </symbol>
+
+  <symbol id="balloon" viewBox="0 0 141.73228 177.16535">
+   <g transform="translate(0 -875.2)">
+    <g>
+     <path style="fill:currentColor" d="m68.156 882.83-.88753 1.4269c-4.9564 7.9666-6.3764 17.321-5.6731 37.378.36584 10.437 1.1246 23.51 1.6874 29.062.38895 3.8372 3.8278 32.454 4.6105 38.459 4.6694-.24176 9.2946.2879 14.377 1.481 1.2359-3.2937 5.2496-13.088 8.886-21.623 6.249-14.668 8.4128-21.264 10.253-31.252 1.2464-6.7626 1.6341-12.156 1.4204-19.764-.36325-12.93-2.1234-19.487-6.9377-25.843-2.0833-2.7507-6.9865-7.6112-7.9127-7.8436-.79716-.20019-6.6946-1.0922-6.7755-1.0248-.02213.0182-5.0006-.41858-7.5248-.22808l-2.149-.22808h-3.3738z"/>
+     <path style="fill:currentColor" d="m61.915 883.28-3.2484.4497c-1.7863.24724-3.5182.53481-3.8494.63994-2.4751.33811-4.7267.86957-6.7777 1.5696-.28598 0-1.0254.20146-2.3695.58589-5.0418 1.4418-6.6374 2.2604-8.2567 4.2364-6.281 7.6657-11.457 18.43-12.932 26.891-1.4667 8.4111.71353 22.583 5.0764 32.996 3.8064 9.0852 13.569 25.149 22.801 37.517 1.3741 1.841 2.1708 2.9286 2.4712 3.5792 3.5437-1.1699 6.8496-1.9336 10.082-2.3263-1.3569-5.7831-4.6968-21.86-6.8361-33.002-.92884-4.8368-2.4692-14.322-3.2452-19.991-.68557-5.0083-.77707-6.9534-.74159-15.791.04316-10.803.41822-16.162 1.5026-21.503 1.4593-5.9026 3.3494-11.077 6.3247-15.852z"/>
+     <path style="fill:currentColor" d="m94.499 885.78c-.10214-.0109-.13691 0-.0907.0409.16033.13489 1.329 1.0675 2.5976 2.0723 6.7003 5.307 11.273 14.568 12.658 25.638.52519 4.1949.24765 14.361-.5059 18.523-2.4775 13.684-9.7807 32.345-20.944 53.519l-3.0559 5.7971c2.8082.76579 5.7915 1.727 8.9926 2.8441 11.562-11.691 18.349-19.678 24.129-28.394 7.8992-11.913 11.132-20.234 12.24-31.518.98442-10.02-1.5579-20.876-6.7799-28.959-.2758-.4269-.57803-.86856-.89617-1.3166-3.247-6.13-9.752-12.053-21.264-16.131-2.3687-.86369-6.3657-2.0433-7.0802-2.1166z"/>
+     <path style="fill:currentColor" d="m32.52 892.22c-.20090-.13016-1.4606.81389-3.9132 2.7457-11.486 9.0476-17.632 24.186-16.078 39.61.79699 7.9138 2.4066 13.505 5.9184 20.562 5.8577 11.77 14.749 23.219 30.087 38.74.05838.059.12188.1244.18052.1838 1.3166-.5556 2.5965-1.0618 3.8429-1.5199-.66408-.32448-1.4608-1.3297-3.8116-4.4602-5.0951-6.785-8.7512-11.962-13.051-18.486-5.1379-7.7948-5.0097-7.5894-8.0586-13.054-6.2097-11.13-8.2674-17.725-8.6014-27.563-.21552-6.3494.13041-9.2733 1.775-14.987 2.1832-7.5849 3.9273-10.986 9.2693-18.07 1.7839-2.3656 2.6418-3.57 2.4409-3.7003z"/>
+     <path style="fill:currentColor" d="m69.133 992.37c-6.2405.0309-12.635.76718-19.554 2.5706 4.6956 4.7759 9.935 10.258 12.05 12.625l4.1272 4.6202h11.493l3.964-4.4516c2.0962-2.3541 7.4804-7.9845 12.201-12.768-8.378-1.4975-16.207-2.6353-24.281-2.5955z"/>
+     <rect style="stroke-width:0;fill:currentColor" ry="2.0328" height="27.746" width="22.766" y="1017.7" x="60.201"/>
+    </g>
+   </g>
+  </symbol>
+
+  <symbol id="info" viewBox="0 0 41.667 41.667">
+   <g transform="translate(-37.035 -1004.6)">
+    <path style="stroke-linejoin:round;stroke:currentColor;stroke-linecap:round;stroke-width:3.728;fill:none" d="m76.25 1030.2a18.968 18.968 0 0 1 -23.037 13.709 18.968 18.968 0 0 1 -13.738 -23.019 18.968 18.968 0 0 1 23.001 -13.768 18.968 18.968 0 0 1 13.798 22.984"/>
+    <g transform="matrix(1.1146 0 0 1.1146 -26.276 -124.92)">
+     <path style="stroke:currentColor;stroke-linecap:round;stroke-width:3.728;fill:none" d="m75.491 1039.5v-8.7472"/>
+     <path style="stroke-width:0;fill:currentColor" transform="scale(-1)" d="m-73.193-1024.5a2.3719 2.3719 0 0 1 -2.8807 1.7142 2.3719 2.3719 0 0 1 -1.718 -2.8785 2.3719 2.3719 0 0 1 2.8763 -1.7217 2.3719 2.3719 0 0 1 1.7254 2.8741"/>
+    </g>
+   </g>
+  </symbol>
+
+  <symbol id="warning" viewBox="0 0 48.430474 41.646302">
+    <g transform="translate(-1.1273 -1010.2)">
+     <path style="stroke-linejoin:round;stroke:currentColor;stroke-linecap:round;stroke-width:4.151;fill:none" d="m25.343 1012.3-22.14 37.496h44.28z"/>
+     <path style="stroke:currentColor;stroke-linecap:round;stroke-width:4.1512;fill:none" d="m25.54 1027.7v8.7472"/>
+     <path style="stroke-width:0;fill:currentColor" d="m27.839 1042.8a2.3719 2.3719 0 0 1 -2.8807 1.7143 2.3719 2.3719 0 0 1 -1.718 -2.8785 2.3719 2.3719 0 0 1 2.8763 -1.7217 2.3719 2.3719 0 0 1 1.7254 2.8741"/>
+    </g>
+  </symbol>
+
+  <symbol id="menu" viewBox="0 0 50 50">
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="0" x="0"/>
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="20" x="0"/>
+     <rect style="stroke-width:0;fill:currentColor" height="10" width="50" y="40" x="0"/>
+   </symbol>
+
+   <symbol id="link" viewBox="0 0 50 50">
+    <g transform="translate(0 -1002.4)">
+     <g transform="matrix(.095670 0 0 .095670 2.3233 1004.9)">
+      <g>
+       <path style="stroke-width:0;fill:currentColor" d="m452.84 192.9-128.65 128.65c-35.535 35.54-93.108 35.54-128.65 0l-42.881-42.886 42.881-42.876 42.884 42.876c11.845 11.822 31.064 11.846 42.886 0l128.64-128.64c11.816-11.831 11.816-31.066 0-42.9l-42.881-42.881c-11.822-11.814-31.064-11.814-42.887 0l-45.928 45.936c-21.292-12.531-45.491-17.905-69.449-16.291l72.501-72.526c35.535-35.521 93.136-35.521 128.64 0l42.886 42.881c35.535 35.523 35.535 93.141-.001 128.66zm-254.28 168.51-45.903 45.9c-11.845 11.846-31.064 11.817-42.881 0l-42.884-42.881c-11.845-11.821-11.845-31.041 0-42.886l128.65-128.65c11.819-11.814 31.069-11.814 42.884 0l42.886 42.886 42.876-42.886-42.876-42.881c-35.54-35.521-93.113-35.521-128.65 0l-128.65 128.64c-35.538 35.545-35.538 93.146 0 128.65l42.883 42.882c35.51 35.54 93.11 35.54 128.65 0l72.496-72.499c-23.956 1.597-48.092-3.784-69.474-16.283z"/>
+      </g>
+     </g>
+    </g>
+  </symbol>
+
+  <symbol id="doc" viewBox="0 0 35 45">
+   <g transform="translate(-147.53 -539.83)">
+    <path style="stroke:currentColor;stroke-width:2.4501;fill:none" d="m149.38 542.67v39.194h31.354v-39.194z"/>
+    <g style="stroke-width:25" transform="matrix(.098003 0 0 .098003 133.69 525.96)">
+     <path d="m220 252.36h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+     <path style="stroke:currentColor;stroke-width:25;fill:none" d="m220 409.95h200"/>
+     <path d="m220 488.74h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+     <path d="m220 331.15h200" style="stroke:currentColor;stroke-width:25;fill:none"/>
+    </g>
+   </g>
+ </symbol>
+
+ <symbol id="tick" viewBox="0 0 177.16535 177.16535">
+  <g transform="translate(0 -875.2)">
+   <rect style="stroke-width:0;fill:currentColor" transform="rotate(30)" height="155" width="40" y="702.99" x="556.82"/>
+   <rect style="stroke-width:0;fill:currentColor" transform="rotate(30)" height="40" width="90.404" y="817.99" x="506.42"/>
+  </g>
+ </symbol>
+</svg>
+
+    <div class="wrapper">
+      <header class="intro-and-nav" role="banner">
+  <div>
+    <div class="intro">
+      <a
+        class="logo"
+        href="https://vigorous-wozniak-4b6bd2.netlify.app/"
+        aria-label="Dai home page"
+      >
+        <img src="https://vigorous-wozniak-4b6bd2.netlify.app/images/logo.svg" alt="">
+      </a>
+      <p class="library-desc">
+         热爱生活,热爱学习。 
+      </p>
+    </div>
+    <nav id="patterns-nav" class="patterns" role="navigation">
+  <h2 class="vh">Main navigation</h2>
+  <button id="menu-button" aria-expanded="false">
+    <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
+      <use xlink:href="#menu"></use>
+    </svg>
+    Menu
+  </button>
+  
+  <ul id="patterns-list">
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Home</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/post/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Articles</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/tags/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Tags</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      <a href="/about/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">About</span>
+      </a>
+    </li>
+  
+  </ul>
+</nav>
+  </div>
+</header>
+
+      <div class="main-and-footer">
+        <div>
+          
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      设计模式学习之工厂模式
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>2017-10-31
+      
+        
+      
+    </div>
+
+    
+      <div class="tags">
+        <strong>Tags: </strong>
+        <ul aria-label="tags">
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/java%E5%9F%BA%E7%A1%80/">Java基础</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            </li>
+          
+            <li>
+              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
+                <use xlink:href="#tag"></use>
+              </svg>
+              
+              <a href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">工厂模式</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+    
+    
+      
+
+  <nav class="toc" aria-labelledby="toc-heading">
+    <h2 id="toc-heading">Table of contents</h2>
+    <ol>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e7%ae%80%e5%8d%95%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f">
+            简单工厂模式
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f">
+            工厂模式
+          </a>
+        </li>
+      
+        <li>
+          
+          
+          
+          
+          <a href="#%e6%8a%bd%e8%b1%a1%e5%b7%a5%e5%8e%82%e6%a8%a1%e5%bc%8f">
+            抽象工厂模式
+          </a>
+        </li>
+      
+    </ol>
+  </nav>
+
+
+    
+
+    <blockquote>
+<p>工厂模式是实际工作中用得比较多的设计模式，本笔记把简单工厂模式、工厂模式和抽象工厂模式放在一起，主要因为它们关系有点类似孙子、父亲和爷爷，简单工厂是工厂模式的一种特例，工厂模式又是抽象工厂的一种特例，这种关系很有意思，感觉就是我能变成你，你亦能变成我。</p>
+</blockquote>
+<h2 id="简单工厂模式">简单工厂模式</h2>
+<p>简单工厂并不算是23种设计模式的一种，但实际开发中，我们会常常用到这种工厂模式的迷你版，而且也有助于理解工厂模式。</p>
+<p>都知道面向接口编程是Java编程的一个重要原则，那何谓接口？接口的重要思想便是：<strong>封装隔离</strong>。而简单工厂模式便是很好的体现了这个思想。</p>
+<p>何谓简单工厂？其定义是：<strong>提供一个创建对象实例的功能，而无需关心其具体实现</strong>。简单来说，类似现实生活中的，我要买一个罐头，你把罐头给我就对了，罐头是一个抽象的概念，对应Java里的接口，而拿到的沙丁鱼罐头就是对应的具体实现。</p>
+<p>简单工厂的本质:<strong>选择实现</strong>。</p>
+<p>提供这么一个编程场景：通过简单工厂得到接口的具体实现，至于是哪个子类实现的，客户端无需关心。</p>
+<p>就以罐头为例，来看代码：</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ * 罐头接口
+ */
+public interface Can {
+    void show();
+}
+
+</code></pre>
+<p>作为购买者，我不需要知道罐头怎么生产的，我说要罐头，就有一个具体的沙丁鱼罐头了，那罐头怎么来的，就是在简单工厂里生产出来的，所以需要一个生产罐头的工厂类。</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ */
+public class CanFactory {
+    public static Can createCan() {
+        //默认只提供一种实现
+        Can can = null;
+        try {
+            can = (Can) Class.forName(&quot;com.dgd.factory.demo1.CannedSardines&quot;).newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return can;
+    }
+}
+
+</code></pre>
+<p>可以看到，工厂里创建罐头实例是通过反射的机制来创建的，需要定义具体的罐头类，如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ */
+public class CannedSardines implements Can {
+    @Override
+    public void show() {
+        System.out.println(&quot;我是沙丁鱼罐头&quot;);
+    }
+}
+
+</code></pre>
+<p>现在来看看客户端是怎么调用的。</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ * 测试罐头工厂
+ */
+public class CanClient {
+    public static void main(String[] args) {
+        Can can = CanFactory.createCan();
+        can.show();
+    }
+}
+
+</code></pre>
+<p>运行代码，控制台就会打印出“我是沙丁鱼罐头”的字样，看客户端也能感受到简单工厂的实用性，我想要罐头，只要调用的工厂类的生产罐头方法就行了<code>CanFactory.createCan()</code>,使用是不是很方便？</p>
+<p>那如果我还要水果罐头呢？因为上面的工厂方法只能生产一种罐头，现在需要根据客户需要再生产水果罐头，那么我们需要一个标识来告诉工厂，如果我要水果罐头，你就能给我生产水果罐头，下面我们来模拟一下，首先在罐头接口里添加水果罐头的类型定义：</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ * 罐头接口
+ */
+public interface Can {
+    //添加了水果罐头的标识
+    Integer CANNED_FRUITS=1;
+    
+    void show();
+}
+</code></pre>
+<p>水果罐头的实现：</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ */
+public class CannedFruits implements Can {
+    @Override
+    public void show() {
+        System.out.println(&quot;我是水果罐头&quot;);
+    }
+}
+
+</code></pre>
+<p>简单工厂类里添加选择提供罐头的方法：</p>
+<pre><code class="language-java">public static Can createCan(int type) {
+        //根据罐头类型来提供相应的罐头:如果标识是1,生产水果罐头,其它情况生产沙丁鱼罐头
+        Can can = null;
+        if (Can.CANNED_FRUITS == type) {
+            can = new CannedFruits();
+        } else {
+            can = new CannedSardines();
+        }
+        return can;
+    }
+
+</code></pre>
+<p>客户端调用：</p>
+<pre><code class="language-java">package com.dgd.factory.demo1;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ * 测试罐头工厂
+ */
+public class CanClient {
+    public static void main(String[] args) {
+        //默认的罐头实现
+        Can can = CanFactory.createCan();
+        can.show();
+
+        //选择性的生产水果罐头
+        Can can1 = CanFactory.createCan(Can.CANNED_FRUITS);
+        can1.show();
+    }
+}
+
+</code></pre>
+<p>通过以上代码可以感受到简单工厂为我们创建实例提供的方便，其优点也是很明显的，<strong>帮助封装和解耦</strong>,实际上，简单工厂常常配合单例模式，即私有化简单工厂的构造方法，因为工厂类我们只需要一个实例即可。简单工厂的一个缺点就是：可能会增加客户端的复杂度，如果通过参数来选择具体实例的话，客户端需要理解各个参数的含义，这样也会暴露部分内部实现。</p>
+<p>以上具体代码可以参考<a href="https://github.com/daigd/StudyDemo/tree/master/designPattern/src/com/dgd/factory/demo1">Github</a>。</p>
+<p><strong>选择实现</strong>是简单工厂的本质，下面我们来继续工厂模式，按照我个人理解，它就是简单工厂的爸爸。</p>
+<h2 id="工厂模式">工厂模式</h2>
+<p>工厂模式的定义：<strong>定义一个创建对象的接口，让子类决定实例化哪一个类，并用工厂方法将类的实例化延迟到其子类</strong>。</p>
+<p>定义读起来有些拗口，简单来说，就是工厂模式定义了一个工厂接口，工厂方法生产出来的产品还是抽象的，产品对象的实例化工作被延迟到子工厂里去了。</p>
+<p>即工厂模式的本质：<strong>延迟实现到子类</strong>。</p>
+<p>还是利用现实问题来讲吧，提供这么一个场景：想要实现一个文件导出功能，由客户来选择导出的方式，比如说：直接导出文本文件，或者是导出到数据库中，那么如何用工厂模式来解决呢？</p>
+<p>由于客户不需要知道文件是如何导出的，你只要告诉他调用这个方法就能导出文件就可以了，所以我们需要先把导出文件的工厂类定义好，如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ * 该类定义成抽象类,因为接口不能有方法的实现
+ */
+public abstract class ExportFileAbstractFactory {
+    public boolean export(String data){
+        return createExportFileApi().export(data);
+    }
+
+    //这个时候并不知道文件导出功能的具体实现
+    protected abstract ExportFileApi createExportFileApi();
+}
+</code></pre>
+<p>导出文件的工厂需要知道导出文件功能的接口，因为工厂就是生产产品的，导出文件功能可以理解成该工厂要生产的一个产品，定义如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ */
+public interface ExportFileApi {
+    /**
+     * 导出内容成为文件
+     * @param data 文件内容
+     * @return 是否导出成功
+     */
+    boolean export(String data);
+}
+
+</code></pre>
+<p>工厂类被定义成抽象类，是因为我们不确定产品的具体实现方式，所以我们需要通过子工厂来体现出来，这里分别是导出文本文件的工厂和导出数据到数据库的工厂，或者理解成，上面定义的抽象工厂类是一个大工厂，负责具体功能产出的是旗下的子工厂。</p>
+<p>将数据导出成文件文件的工厂：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ * 将数据导出成文本文件
+ */
+public class ExportTextFileFactory extends ExportFileAbstractFactory {
+    @Override
+    protected ExportFileApi createExportFileApi() {
+        return new ExportTextFile();
+    }
+}
+
+</code></pre>
+<p>将数据导出到数据库中的工厂：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ * 将数据导出到数据库中
+ */
+public class ExportDbFileFactory extends ExportFileAbstractFactory {
+    @Override
+    protected ExportFileApi createExportFileApi() {
+        return new ExportDbFile();
+    }
+}
+
+</code></pre>
+<p>可以看到，文件导出功能的执行者都是在子工厂里面创建的，它们的定义如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ */
+public class ExportTextFile implements ExportFileApi {
+    @Override
+    public boolean export(String data) {
+        System.out.println(&quot;导出数据&quot;+data+&quot;到文本文件&quot;);
+        return true;
+    }
+}
+</code></pre>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ */
+public class ExportDbFile implements ExportFileApi {
+    @Override
+    public boolean export(String data) {
+        System.out.println(&quot;导出数据&quot;+data+&quot;到数据库备份文件&quot;);
+        return true;
+    }
+}
+
+</code></pre>
+<p>用户怎么使用导出文件的功能？他需要知道这些实现细节吗？不需要。他只要知道，如果数据要导出成文本文件，跟导出文本文件的子工厂通知一声就行，如果要将数据导出到数据库，那就跟对应的子工厂通知一声就可以了，代码体现如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/26.
+ */
+public class Client {
+    public static void main(String[] args) {
+        //将数据导出成文本文件
+        ExportFileAbstractFactory factory = new ExportTextFileFactory();
+        factory.export(&quot;123&quot;);
+        
+        //将数据导出到数据库中
+        factory = new ExportDbFileFactory();
+        factory.export(&quot;DB&quot;);
+    }
+}
+
+</code></pre>
+<p>运行代码，可以看到控制台分别打印出“导出数据123到文本文件“，“导出数据DB到数据库备份文件”。</p>
+<p>其实工厂模式的核心思想就是，在不知道产品如何生产出来的时候，也要先给用户出来产品方案，对应代码里<code>ExportFileAbstractFactory</code>中的这段：</p>
+<pre><code class="language-java">	//这个时候并不知道对象的具体实现
+    protected abstract ExportFileApi createExportFileApi();
+</code></pre>
+<p>也就是说，先跟客户谈好我们能生产这个产品，把合同签下来了，钱到手了，到时具体功能的实现再找下面的子工厂，至于这个子工厂是自家的还是外包的，其实并不重要，重要是能给我生产出这个产品出来就行，在本例中是用子工厂，也就是继承的方式。</p>
+<p>即工厂模式的本质：<strong>延迟实现到子类</strong>。</p>
+<p>如果把工厂模式中的功能代码去掉，只保留提供接口实现的部分，比如：</p>
+<pre><code class="language-java">package com.dgd.factory.demo2;
+
+/**
+ * @Author DGD
+ * @date 2017/10/31.
+ */
+public class ExportFatory {
+    //提供文本文件功能导出的实例
+    public static ExportFileApi createExportFileApi() {
+        return new ExportTextFile();
+    }
+}
+
+</code></pre>
+<p>这样子是不是就是简单工厂模式了？所以说工厂模式退化一下，不把产品的功能实现揽在自己身上，只负责提供产品的话，那么它就变成简单工厂了，是不是感觉工厂模式就是简单工厂的爸爸，因为它比简单工厂懂得更多一点，担子重一些。</p>
+<p>工厂模式的相关代码可以参考<a href="https://github.com/daigd/StudyDemo/tree/master/designPattern/src/com/dgd/factory/demo2">Github</a>。</p>
+<h2 id="抽象工厂模式">抽象工厂模式</h2>
+<p>之所以说抽象工厂模式在三者之中地位最高，自然是因为它的能力最大，简单工厂和工厂模式都是生产一种产品，比如罐头就是罐头，导出文件就是导出文件（功能也可以理解成是一种产品），而抽象工厂呢？它就是生产一系列产品的。</p>
+<p>比如提供这么一种场景：去电脑城组装电脑，有这么两种装机方案（简单起见，只讨论CPU和主板），一是：Intel的CPU+技嘉的主板，二是：AMD的CPU+微星的主板，那么如何用抽象工厂模式来实现这个功能呢？</p>
+<p>既然抽象工厂是生产一系列产品，自然要在接口定义里要体现出来，如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 定义抽象工厂的接口
+ */
+public interface AbstractFactory {
+    //提供创建CPU的方法
+    CPUApi createCPUApi();
+
+    //提供创建主板的方法
+    MainboardApi createMainboardApi();
+}
+
+</code></pre>
+<p>上面用到的CPU和主板的接口定义如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * CPU接口
+ */
+public interface CPUApi {
+    void calculate();
+}
+
+</code></pre>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 主板接口
+ */
+public interface MainboardApi {
+    void installCPU();
+}
+
+</code></pre>
+<p>CPU提供两种实现，分别是Intel型号的CPU和AMD型号的CPU：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ */
+public class IntelCPU implements CPUApi {
+    //CPU针脚数目
+    private int pins;
+
+    public IntelCPU(int pins) {
+        this.pins = pins;
+    }
+    @Override
+    public void calculate() {
+        System.out.println(&quot;now in Intel CPU,pins=&quot;+pins);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ */
+public class AMDCpu implements CPUApi {
+    private int pins;
+
+    public AMDCpu(int pins) {
+        this.pins = pins;
+    }
+    @Override
+    public void calculate() {
+        System.out.println(&quot;now in AMD CPU,pins=&quot;+pins);
+    }
+}
+
+</code></pre>
+<p>主板也提供两种实现，分别是技嘉的主板和微星的主板：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 技嘉的主板
+ */
+public class GAMainboard implements MainboardApi {
+    /**
+     * CPU插槽的孔数
+     */
+    private int cpuHoles;
+
+    public GAMainboard(int cpuHoles) {
+        this.cpuHoles = cpuHoles;
+    }
+    @Override
+    public void installCPU() {
+        System.out.println(&quot;now in GAMainboard,cpuHoles=&quot;+cpuHoles);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 微星的主板
+ */
+public class MSIMainboard implements MainboardApi {
+    private int cpuHoles;
+
+    public MSIMainboard(int cpuHoles) {
+        this.cpuHoles = cpuHoles;
+    }
+    @Override
+    public void installCPU() {
+        System.out.println(&quot;now in MSIMainboard,cpuholes=&quot;+cpuHoles);
+    }
+}
+
+</code></pre>
+<p>好了，现在负责生产产品的工厂可以开工了，这里要保证的是CPU型号和主板型号要对应客户给的方案，代码如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 第一种电脑组装实现:Intel的CPU+技嘉的主板
+ */
+public class Schema1 implements AbstractFactory {
+    @Override
+    public CPUApi createCPUApi() {
+        return new IntelCPU(1156);
+    }
+
+    @Override
+    public MainboardApi createMainboardApi() {
+        return new GAMainboard(1156);
+    }
+}
+
+</code></pre>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 第二种装机方案:AMD的CPU+微星的主板
+ */
+public class Schema2 implements AbstractFactory{
+    @Override
+    public CPUApi createCPUApi() {
+        return new AMDCpu(939);
+    }
+
+    @Override
+    public MainboardApi createMainboardApi() {
+        return new MSIMainboard(939);
+    }
+}
+
+</code></pre>
+<p>现在客户把方案扔过来，我们要给他提供合适的电脑，按理来说我们还需要一个装机工程师，因为工厂负责把装机需要的一系列产品生产出来，需要装机工程师来组装。装机工程师的定义如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 装机工程师
+ */
+public class ComputerEngineer {
+    private CPUApi cpuApi;
+    private MainboardApi mainboardApi;
+
+    public void makeComputer(AbstractFactory schema) {
+        //1,准备好电脑配件
+        prepareHardwares(schema);
+        //2,组装电脑
+        //3,测试电脑
+        //4,交付用户
+    }
+
+    private void prepareHardwares(AbstractFactory schema) {
+        //使用抽象工厂来获取相关组件
+        this.cpuApi = schema.createCPUApi();
+        this.mainboardApi = schema.createMainboardApi();
+
+        //测试组件是否好用
+        this.cpuApi.calculate();
+        this.mainboardApi.installCPU();
+    }
+}
+
+</code></pre>
+<p>也就是说，客户把想要组装的方案交给装机工程师，工程师跟生产产品的工厂说一声，工厂直接把对应的CPU和主板生产好，交给装机工程师，最后装机工程师就把组装好的电脑交付给客户。</p>
+<p>对应的客户端代码如下：</p>
+<pre><code class="language-java">package com.dgd.factory.demo3;
+
+/**
+ * @Author DGD
+ * @date 2017/10/27.
+ * 利用抽象工厂模式来实现电脑组装功能,客户可以随意切换装机方案,要保证不同方案下组装的电脑组件一致
+ */
+public class Client {
+    public static void main(String[] args) {
+        //方案一:Intel的CPU+技嘉的主板
+        AbstractFactory factory = new Schema1();
+        ComputerEngineer engineer = new ComputerEngineer();
+        engineer.makeComputer(factory);
+
+        //方案二:AMD的CPU+微星的主板
+        factory = new Schema2();
+        engineer.makeComputer(factory);
+
+    }
+}
+
+</code></pre>
+<p>运行一下，可以看到方案一组装出来的电脑就是Intel+技嘉的主板，方案二组装出来的电脑就是AMD+微星的主板。</p>
+<p>我们看看抽象工厂的定义，<strong>提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类</strong>。</p>
+<p>由此可以知道，抽象工厂适用于工厂要生产一系列产品的场景，并且产品之间是有关系的比如CPU和主板，都是电脑的一部分，这一系列的产品不能一个是汽车发动机，一个是电脑主板，这样就变成单纯的工厂模式或者简单工厂了。</p>
+<p>因而，抽象工厂的本质：<strong>选择产品簇的实现</strong>。</p>
+<p>由于工厂模式只专注于一种产品的实现，而抽象工厂是产品簇的实现，因而可以说抽象工厂是工厂模式的父亲，自然就是简单工厂的爷爷了。换句话说，工厂模式是抽象工厂模式的一种特例,而简单工厂模式又是工厂模式的一种特例。</p>
+<p>抽象工厂的示例代码可以参考<a href="https://github.com/daigd/StudyDemo/tree/master/designPattern/src/com/dgd/factory/demo3">Github</a>。</p>
+<p><strong>后记：本文是我学习陈臣，王斌著的《研磨设计模式》的读书心得笔记，不当之处，欢迎指教，以便互相学习，共同进步。</strong></p>
+<hr>
+
+  </main>
+  <div id="disqus-container">
+  
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <div id="disqus_thread">
+        </div>
+        <script type="application/javascript">
+          function showComments() {
+            // Config
+var disqus_config = function () {
+};
+// Build and append comments 
+var d = document;
+var s = d.createElement('script');
+s.async = true;
+s.src = '//' + "daigd" + '.disqus.com/embed.js';
+s.setAttribute('data-timestamp', + new Date());
+(d.head || d.body).appendChild(s);
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
+  
+</div>
+
+
+          <footer role="contentinfo">
+  <div>
+    <label for="themer">
+      dark theme: <input type="checkbox" id="themer" class="vh">
+      <span aria-hidden="true"></span>
+    </label>
+  </div>
+  
+    Made with <a href="https://gohugo.io/">Hugo</a>. Themed by <a href="https://github.com/zwbetz-gh/cupper-hugo-theme">Cupper</a>. Deployed to <a href="https://www.netlify.com/">Netlify</a>.
+  
+</footer>
+
+        </div>
+      </div>
+    </div>
+    <script src="https://vigorous-wozniak-4b6bd2.netlify.app/js/prism.js"></script>
+
+
+
+<script src="https://vigorous-wozniak-4b6bd2.netlify.app/js/dom-scripts.js"></script>
+
+
+
+<script src="/js/search.da4e0819db35e5fc5289562d46cf4a2173684e337d69d997639a24b79ecd6416.js"></script>
+
+<link rel="stylesheet" href="/css/search.54f9a90ceddfdaa3e66698090e7d4a7e7a7f217c85bc79c48ed09c8cb3ee6777.css"></link>
+
+
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css" integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js" integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+    
+  
+  <script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-123456789-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  
+
+  </body>
+</html>

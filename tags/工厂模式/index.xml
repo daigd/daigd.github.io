@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工厂模式 on Dai</title>
+    <link>https://vigorous-wozniak-4b6bd2.netlify.app/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 工厂模式 on Dai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 31 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>设计模式学习之工厂模式</title>
+      <link>https://vigorous-wozniak-4b6bd2.netlify.app/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://vigorous-wozniak-4b6bd2.netlify.app/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <description>工厂模式是实际工作中用得比较多的设计模式，本笔记把简单工厂模式、工厂模式和抽象工厂模式放在一起，主要因为它们关系有点类似孙子、父亲和爷爷，简单工厂是工厂模式的一种特例，工厂模式又是抽象工厂的一种特例，这种关系很有意思，感觉就是我能变成你，你亦能变成我。
+ 简单工厂模式 简单工厂并不算是23种设计模式的一种，但实际开发中，我们会常常用到这种工厂模式的迷你版，而且也有助于理解工厂模式。
+都知道面向接口编程是Java编程的一个重要原则，那何谓接口？接口的重要思想便是：封装隔离。而简单工厂模式便是很好的体现了这个思想。
+何谓简单工厂？其定义是：提供一个创建对象实例的功能，而无需关心其具体实现。简单来说，类似现实生活中的，我要买一个罐头，你把罐头给我就对了，罐头是一个抽象的概念，对应Java里的接口，而拿到的沙丁鱼罐头就是对应的具体实现。
+简单工厂的本质:选择实现。
+提供这么一个编程场景：通过简单工厂得到接口的具体实现，至于是哪个子类实现的，客户端无需关心。
+就以罐头为例，来看代码：
+package com.dgd.factory.demo1; /** * @Author DGD * @date 2017/10/31. * 罐头接口 */ public interface Can { void show(); }  作为购买者，我不需要知道罐头怎么生产的，我说要罐头，就有一个具体的沙丁鱼罐头了，那罐头怎么来的，就是在简单工厂里生产出来的，所以需要一个生产罐头的工厂类。
+package com.dgd.factory.demo1; /** * @Author DGD * @date 2017/10/31. */ public class CanFactory { public static Can createCan() { //默认只提供一种实现 Can can = null; try { can = (Can) Class.forName(&amp;quot;com.dgd.factory.demo1.CannedSardines&amp;quot;).newInstance(); } catch (InstantiationException e) { e.printStackTrace(); } catch (IllegalAccessException e) { e.</description>
+    </item>
+    
+  </channel>
+</rss>
