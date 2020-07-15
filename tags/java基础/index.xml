@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Java基础 on Dai</title>
-    <link>https://vigorous-wozniak-4b6bd2.netlify.app/tags/java%E5%9F%BA%E7%A1%80/</link>
+    <link>https://daigd.github.io/tags/java%E5%9F%BA%E7%A1%80/</link>
     <description>Recent content in Java基础 on Dai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <lastBuildDate>Wed, 15 Jul 2020 15:10:12 +0800</lastBuildDate>
     
-	<atom:link href="https://vigorous-wozniak-4b6bd2.netlify.app/tags/java%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://daigd.github.io/tags/java%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java常量池总结</title>
-      <link>https://vigorous-wozniak-4b6bd2.netlify.app/java%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%80%BB%E7%BB%93/</link>
+      <link>https://daigd.github.io/java%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%80%BB%E7%BB%93/</link>
       <pubDate>Wed, 15 Jul 2020 15:10:12 +0800</pubDate>
       
-      <guid>https://vigorous-wozniak-4b6bd2.netlify.app/java%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%80%BB%E7%BB%93/</guid>
+      <guid>https://daigd.github.io/java%E5%B8%B8%E9%87%8F%E6%B1%A0%E6%80%BB%E7%BB%93/</guid>
       <description>在Java体系中，一共有三种常量池，分别是Class常量池、字符串常量池和运行时常量池。
 Class常量池 什么是Class常量池？可以理解成Class文件的资源仓库，用于存放编译器生成的各种字面量（Literal）和符号引用（Symbolic References）。
  字面量：在计算机科学中，字面量用于表示源代码中一个固定值的表示法，如整数，浮点数，字符串等。
@@ -29,10 +29,10 @@ Last modified 2020-7-15; size 774 bytes MD5 checksum bd438b8d35e4266f3713e53bf10
     
     <item>
       <title>设计模式学习之工厂模式</title>
-      <link>https://vigorous-wozniak-4b6bd2.netlify.app/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://daigd.github.io/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://vigorous-wozniak-4b6bd2.netlify.app/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://daigd.github.io/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</guid>
       <description>工厂模式是实际工作中用得比较多的设计模式，本笔记把简单工厂模式、工厂模式和抽象工厂模式放在一起，主要因为它们关系有点类似孙子、父亲和爷爷，简单工厂是工厂模式的一种特例，工厂模式又是抽象工厂的一种特例，这种关系很有意思，感觉就是我能变成你，你亦能变成我。
  简单工厂模式 简单工厂并不算是23种设计模式的一种，但实际开发中，我们会常常用到这种工厂模式的迷你版，而且也有助于理解工厂模式。
 都知道面向接口编程是Java编程的一个重要原则，那何谓接口？接口的重要思想便是：封装隔离。而简单工厂模式便是很好的体现了这个思想。
